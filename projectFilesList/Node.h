@@ -7,17 +7,16 @@
 using namespace std;
 
 class Node {
-struct node{
-    int data;
-    struct node* prev;
-    struct node* next;
-};
-node* newNode;
+
 public:
-    void insertNode(int dat);
-    void insertNode(int dat, node* previousNode, node* nextNode);
-    void editNode(node* previousNode, node* nextNode);
+    int data;
+    Node* next;
+    Node();
+    Node(int dat);
     void editNode(int dat);
+    void editNode(Node* newNext);
+    int getData();
+    Node* getNext();
 };
 
 
