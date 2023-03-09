@@ -49,11 +49,20 @@ int Node::getData() {
 Node* Node::getNext() {
     return next;
 }
+/**
+ * Overloads new operator to asign recycled memory
+ * @param size
+ * @return
+ */
 void* Node::operator new(size_t size){
     return collectorList->asignMemory(size);
     //check if in  collector there is a recycled pointer that it can use to recyle a memory space to use or use the
     //global new operator to assign memory
 }
+/**
+ * overloades delete operator to recyle memory
+ * @param nodeToDelete
+ */
 void Node::operator delete(void* nodeToDelete){
     //add the pointer to the collector list
     collectorList->recycleMemory(nodeToDelete);

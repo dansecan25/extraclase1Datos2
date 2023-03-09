@@ -7,7 +7,7 @@
 #include "Node.h"
 #include <iostream>
 #include <list>
-
+using namespace std;
 class Collector {
 private:
     list<void*> recycledList;
