@@ -15,9 +15,10 @@ Node::Node() {
  * Constructor to create a node with data
  * @param dat
  */
-Node::Node(int dat){
+Node::Node(int dat,Collector* collectClass){
     this->data=dat;
     this->next=NULL;
+    this->collectorList=collectClass;
 }
 /**
  * Edits the nodes data
@@ -46,4 +47,14 @@ int Node::getData() {
  */
 Node* Node::getNext() {
     return next;
+}
+void* Node::operator new(size_t size){
+    return collectorList->asignMemory(size);
+    //check if in  collector there is a recycled pointer that it can use to recyle a memory space to use or use the
+    //global new operator to assign memory
+}
+void Node::operator delete(void* nodeToDelete){
+    //add the pointer to the collector list
+    collectorList->recycleMemory(nodeToDelete);
+
 }
