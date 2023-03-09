@@ -7,9 +7,10 @@
 /**
  * constructor to create a node
  */
-Node::Node() {
+Node::Node(Collector* collectClass) {
     data=0;
     next=NULL;
+    collectorList=collectClass;
 }
 /**
  * Constructor to create a node with data

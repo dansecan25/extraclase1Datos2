@@ -13,7 +13,7 @@ public:
     int data;
     static Collector* collectorList;
     Node* next;
-    Node();
+    Node(Collector * collectClass);
     Node(int dat,Collector* collectClass);
     void editNode(int dat);
     void editNode(Node* newNext);
