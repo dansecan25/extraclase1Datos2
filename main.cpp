@@ -2,7 +2,10 @@
 #include "projectFilesList/List.h"
 using namespace std;
 //include "projectFilesList/List.h"
-
+/**
+ * Function that prints the menu
+ * @return
+ */
 char Menu(){
     char option = ' ' ;
     do {
@@ -22,13 +25,17 @@ char Menu(){
     }while((option<'1') or (option>'5'));
     return option;
 }
+/**
+ * Main function for the options
+ * @return
+ */
 int main() {
     char option = ' ';
     int Aux;
     List *List1=new List();
     Node* Temp;
     int num = 0;
-
+    //reference code for the list: https://youtube.com/playlist?list=PLTfBlHha1ARX56ajdVVQ_EZu-Q6p0fqug
     do{
         option=Menu();
         switch(option){
@@ -76,8 +83,5 @@ int main() {
                 break;
         }
     }while(option!='5');
-
-
-
     return 0;
 }

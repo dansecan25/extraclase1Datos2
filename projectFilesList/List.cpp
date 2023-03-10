@@ -3,20 +3,31 @@
 //
 using namespace std;
 #include "List.h"
-//code from https://www.youtube.com/watch?v=s0epWjA3CvE
 
+/**
+ * constructor to create a list
+ */
 List::List() {
     head = NULL;
 }
-
+/**
+ * Sets the head of the list
+ * @param H
+ */
 void List::setHead(Node *H) {
     head = H;
 }
-
+/**
+ * Returns the head of the list
+ * @return
+ */
 Node* List::getHead() {
     return head;
 }
-
+/**
+ * Returns the last node of the list
+ * @return
+ */
 Node* List::getLast() {
     Node *last = getHead();
     while(last->getNext()!=NULL){
@@ -24,7 +35,10 @@ Node* List::getLast() {
     }
     return last;
 }
-
+/**
+ * Adds a new node to the list
+ * @param data
+ */
 void List::addNode (int data){
     Node *n=new Node(data);
     if (getHead() == NULL)
@@ -36,7 +50,10 @@ void List::addNode (int data){
         getLast()->editNode(n);
     }
 }
-
+/**
+ * Prints the list with all of its nodes
+ * @param n
+ */
 void List::printList(Node *n){
 
     if (n != NULL)
@@ -45,7 +62,10 @@ void List::printList(Node *n){
         this->printList(n->next);
     }
 }
-
+/**
+ * Deletes a node from the list
+ * @param data
+ */
 void List::deleteNode(int data){
     Node *find = getHead();
     Node *before=NULL;
@@ -62,7 +82,11 @@ void List::deleteNode(int data){
     }
     delete find;
 }
-
+/**
+ * Looks if a determined node exists in the list
+ * @param data
+ * @return
+ */
 Node* List::findNode(int data){
     Node *find =  getHead();
     while((find != NULL) and (find->getData()!=data)){
