@@ -1,7 +1,5 @@
 #include <iostream>
 #include "projectFilesList/List.h"
-#include "windows.h"
-#include "conio.h"
 #include "projectFilesList/Node.h"
 using namespace std;
 //include "projectFilesList/List.h"
@@ -20,8 +18,6 @@ char Menu(){
 
         if((option<'1')or(option>'5')){
             system("cls");
-            cout<<"Invalid option";
-            getch();
             system("cls");
         }
     }while((option<'1') or (option>'5'));
@@ -30,19 +26,18 @@ char Menu(){
 static Collector* collectorList;
 int main() {
     char option = ' ';
-    Node *Aux=NULL, *Temp=NULL;
+    int Aux;
     List *List1=new List();
+    Node* Temp;
     int num = 0;
 
     do{
         option=Menu();
-        getch();
         switch(option){
             case '1':
-                Aux= new Node(collectorList);
+                Aux= 2;
                 cout<<"Please type a number: ";
                 cin>>num;
-                Aux->editNode(num);
                 List1 ->addNode(Aux);
                 cout<<"Node completed...";
                 break;

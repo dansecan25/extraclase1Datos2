@@ -7,6 +7,7 @@ using namespace std;
 
 List::List() {
     head = NULL;
+    collectorList=new Collector();
 }
 
 void List::setHead(Node *H) {
@@ -25,19 +26,20 @@ Node* List::getLast() {
     return last;
 }
 
-void List::addNode (Node *new){
+void List::addNode (int data){
+    Node *n=new Node(data,collectorList);
     if (getHead() == NULL)
     {
-        setHead(new);
+        setHead(n);
     }
     else
     {
-        getLast()->editNode(new);
+        getLast()->editNode(n);
     }
 }
 
-void printList(Node *n)
-{
+void List::printList(Node *n){
+
     if (n != NULL)
     {
         cout << "We have: " << n->data <<endl;
@@ -48,15 +50,15 @@ void printList(Node *n)
 void List::deleteNode(int data){
     Node *find = getHead();
     Node *before=NULL;
-    if(find -> getnum()==data){
+    if(find -> getData()==data){
         setHead(getHead()->getNext());
     } else {
-        while((find!=NULL) and (find->getnum()!=data)){
+        while((find!=NULL) and (find->getData()!=data)){
             before=find;
             find=find->getNext();
         }
         if (find!=NULL){
-            before->setNext(find->getNext());
+            before->editNode(find->getNext());
         }
     }
     delete find;
@@ -64,7 +66,7 @@ void List::deleteNode(int data){
 
 Node* List::findNode(int data){
     Node *find =  getHead();
-    while((find != NULL) and (find->getnum()!=data)){
+    while((find != NULL) and (find->getData()!=data)){
         find = find->getNext();
     }
     return find;

@@ -5,18 +5,20 @@
 #ifndef EXTRACLASE1DATOS2_LIST_H
 #define EXTRACLASE1DATOS2_LIST_H
 #include "Node.h"
+#include "Collector.h"
 using namespace std;
 
 class List {
 private:
     Node *head;
+    Collector *collectorList;
 public:
     List();
-
     void setHead(Node*);
     Node* getHead();
     Node* getLast();
-    void addNode(Node*);
+    void addNode(int);
+    void printList(Node *n);
     Node* findNode(int);
     void deleteNode(int);
 

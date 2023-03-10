@@ -4,18 +4,9 @@
 
 #ifndef EXTRACLASE1DATOS2_COLLECTOR_H
 #define EXTRACLASE1DATOS2_COLLECTOR_H
-#include "Node.h"
-#include <iostream>
-#include <list>
+
 using namespace std;
-class Collector {
-private:
-    list<void*> recycledList;
-public:
-    Collector();
-    void recycleMemory(void* memoryPtr);
-    void* asignMemory(size_t size);
-};
+
 
 
 #endif //EXTRACLASE1DATOS2_COLLECTOR_H
