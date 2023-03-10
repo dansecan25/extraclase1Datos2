@@ -21,6 +21,7 @@ Node::Node(int dat,Collector* collectClass){
     this->next=NULL;
     this->collectorList=collectClass;
 }
+
 /**
  * Edits the nodes data
  * @param dat

@@ -8,6 +8,9 @@
 using namespace std;
 
 class Node {
+private:
+    int Num;
+    Node *link;
 
 public:
     int data;
@@ -21,6 +24,7 @@ public:
     Node* getNext();
     void* operator new(size_t size);
     void operator delete(void*);
+
 };
 
 
