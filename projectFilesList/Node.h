@@ -7,6 +7,7 @@
 #include <list>
 #include <iostream>
 using namespace std;
+
 class Collector {
 private:
     list<void*> recycledList;

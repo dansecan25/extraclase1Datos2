@@ -9,6 +9,7 @@
  */
 Collector::Collector() {
     cout<<"collector started"<<endl;
+
 }
 /**
  * recyles memory by pushing the pointer of the deleted node into the list
