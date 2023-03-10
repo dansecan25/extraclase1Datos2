@@ -7,7 +7,6 @@ using namespace std;
 
 List::List() {
     head = NULL;
-    collectorList=new Collector();
 }
 
 void List::setHead(Node *H) {
@@ -27,7 +26,7 @@ Node* List::getLast() {
 }
 
 void List::addNode (int data){
-    Node *n=new Node(data,collectorList);
+    Node *n=new Node(data);
     if (getHead() == NULL)
     {
         setHead(n);

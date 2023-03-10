@@ -11,7 +11,6 @@ using namespace std;
 class List {
 private:
     Node *head;
-    Collector *collectorList;
 public:
     List();
     void setHead(Node*);

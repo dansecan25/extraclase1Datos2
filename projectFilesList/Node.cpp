@@ -4,50 +4,22 @@
 
 #include <cstring>
 #include "Node.h"
-/**
- * constructor class for the collector
- */
-Collector::Collector() {
-    cout<<"collector started"<<endl;
 
-}
-/**
- * recyles memory by pushing the pointer of the deleted node into the list
- * @param memoryPtr
- */
-void Collector::recycleMemory(void *memoryPtr) {
-    recycledList.push_back(memoryPtr);
-}
-/**
- * asigns a memory pointer to a node as solicited when calling this function by giving a memory pointer from the list or a default memory block
- * @param size
- * @return
- */
-void* Collector::asignMemory(size_t size) {
-    if(recycledList.empty()){ //if there is no recycled memories on the list
-        return ::operator new(size);
-    } else{
-        void* freeMemoryPtr=recycledList.front();
-        recycledList.pop_front();
-        return freeMemoryPtr;
-    }
-}
 /**
  * constructor to create a node
  */
 Node::Node() {
     data=0;
     next=NULL;
-    collectorList=new Collector();
+
 }
 /**
  * Constructor to create a node with data
  * @param dat
  */
-Node::Node(int dat,Collector* collectClass){
+Node::Node(int dat){
     this->data=dat;
     this->next=NULL;
-    this->collectorList=collectClass;
 }
 
 /**
@@ -84,7 +56,7 @@ Node* Node::getNext() {
  * @return
  */
 void* Node::operator new(size_t size){
-    return collectorList->asignMemory(size);
+    return Collector::getInstance()->asignMemory(size);
     //check if in  collector there is a recycled pointer that it can use to recyle a memory space to use or use the
     //global new operator to assign memory
 }
@@ -94,6 +66,5 @@ void* Node::operator new(size_t size){
  */
 void Node::operator delete(void* nodeToDelete){
     //add the pointer to the collector list
-    collectorList->recycleMemory(nodeToDelete);
-
+    Collector::getInstance()->recycleMemory(nodeToDelete);
 }

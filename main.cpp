@@ -1,6 +1,5 @@
 #include <iostream>
 #include "projectFilesList/List.h"
-#include "projectFilesList/Node.h"
 using namespace std;
 //include "projectFilesList/List.h"
 
@@ -23,7 +22,6 @@ char Menu(){
     }while((option<'1') or (option>'5'));
     return option;
 }
-static Collector* collectorList;
 int main() {
     char option = ' ';
     int Aux;
