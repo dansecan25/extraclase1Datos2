@@ -11,6 +11,9 @@ Collector::Collector() {
     cout<<"collector started"<<endl;
 
 }
+/**
+ * instance for collector for creating the singleton
+ */
 Collector *Collector::getInstance() {
     if(instance== nullptr) instance=new Collector();
     return instance;
